@@ -1,0 +1,9 @@
+{% extends "admin/base.html" %}
+
+{% block title %}{{ title }} | Customized Admin Header{% endblock %}
+
+{% block branding %}
+<h1 id="site-name"><a href="{% url 'admin:index' %}">Customized Admin Header</a></h1>
+{% endblock %}
+
+{% block nav-global %}{% endblock %}

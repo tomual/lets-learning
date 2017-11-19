@@ -1,0 +1,8 @@
+.pc-condensed a {
+    float: left;
+}
+
+.pc-condensed p {
+    margin-left: 50px;
+    text-align: left;
+}

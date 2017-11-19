@@ -1,0 +1,178 @@
+/*DEFAULT*/
+
+header,
+nav,
+footer {
+    display: block;
+}
+
+body {
+    font-family: Calibri;
+    line-height: 1.5;
+    margin: 0;
+}
+
+img {
+    max-width: 100%;
+}
+
+.container {
+    width: 100%;
+    margin: auto;
+    padding: 24px 0;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 1200px;
+    margin: auto;
+}
+
+.row:after {
+    display: table;
+    clear: both;
+    content: '';
+}
+
+.col-3 {width: 25%;}
+.col-4 {width: 33.33%;}
+.col-6 {width: 50%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%;}
+.col-12 {width: 100%;}
+
+[class*="col-"] {
+    padding: 24px;
+    box-sizing: border-box;
+}
+
+/*NAV */
+
+nav {
+    width: 100%;
+    margin: 0;
+}
+
+nav ul {
+    background: #EEE;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    list-style-type: none;
+    float: left;
+}
+
+nav li.text-right {
+    float: right;
+}
+
+nav li a {
+    display: block;
+    text-decoration: none;
+    min-height: 16px;
+    text-align: center;
+    padding: 12px;
+    text-transform: uppercase;
+    color: #666
+}
+
+nav li a:hover {
+    background: #0080FF;
+    color: #FFF;
+}
+
+.hamburger {
+    display: none;
+}
+
+/*HERO*/
+
+.hero {
+    background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+}
+
+.hero h1,
+.hero h2 {
+    color: #FFF;
+}
+
+.hero label {
+    color: #c87b65;
+}
+
+.hero input {
+    font-size: 1.2em;
+    width: 300px;
+    border: 2px solid #fda085;
+    padding: 6px 12px;
+    border-radius: 6px;
+    max-width: 100%;
+}
+
+.video iframe {
+    max-width: 100%;
+    position: relative;
+    margin: 0;
+    overflow: hidden;
+}
+
+.info {
+    text-align: center;
+}
+
+.promo {
+    background: #f6d3654d;
+}
+
+.container.footer {
+    background: #505050;
+    color: #FFF;
+}
+
+/*RESPONSIVE*/
+
+@media screen and (max-width: 680px) {
+
+    .row {
+        width: 100%;
+    }
+
+    [class*="col-"] {
+        padding: 12px;
+        width: 100%;
+    }
+
+    nav li:not(:nth-child(1)) {
+        display: none;
+    }
+
+    nav li.hamburger {
+        display: block;
+        float: right;
+    }
+
+    nav ul.responsive .hamburger {
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+
+    nav ul.responsive {
+        position: relative;
+    }
+
+    nav ul.responsive li {
+        display: inline;
+        float: none;
+    }
+
+    nav ul.responsive li a {
+        display: block;
+        text-align: left;
+    }
+}

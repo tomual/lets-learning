@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tony Tony Chopper</title>
+    <link rel="stylesheet" type="text/css" href="main.css">
+</head>
+<body>
+    <nav>
+        <ul class="menu" id="menu">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#news">News</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#about">About</a></li>
+            <li class="text-right"><a href="#signup">Sign Up</a></li>
+            <li class="text-right"><a href="#signin">Sign In</a></li>
+            <li class="hamburger"><a href="javascript:void(0)" onclick="dropdownMenu()">&#9776;</a></li>
+        </ul>
+    </nav>
+
+    <div class="container hero">
+        <div class="row">
+            <div class="col-6">
+                <h1>Tony Tony Chopper</h1>
+                <h2>A tiny deer doctor</h2>
+                <form>
+                    <label>Username</label><br>
+                    <input type="text" name="username" placeholder="Your username"><br>
+                    <label>Password</label><br>
+                    <input type="password" name="password" placeholder="Password">
+                </form>
+            </div>
+            <div class="col-6">
+                <div class="video">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/t8icD_jAXmo?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container info">
+        <div class="row">
+            <div class="col-4">
+                <h3>Some heading</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                consequat.</p>
+            </div>
+            <div class="col-4">
+                <h3>Some heading</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                consequat.</p>
+            </div>
+            <div class="col-4">
+                <h3>Some heading</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                consequat.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container promo">
+        <div class="row">
+            <div class="col-6">
+                <h3>Some heading</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                consequat.</p>
+            </div>
+            <div class="col-6">
+                <img src="img/ttc.gif">
+            </div>
+        </div>
+    </div>
+
+    <footer class="container footer">
+        <div class="row">
+            <div class="col-3">
+                <b>Some other stuff</b>
+                <ul>
+                    <li>Start thing</li>
+                    <li>Middle thing</li>
+                    <li>Last thing</li>
+                </ul>
+            </div>
+            <div class="col-3">
+                <b>Some other stuff</b>
+                <ul>
+                    <li>Start thing</li>
+                    <li>Middle thing</li>
+                    <li>Last thing</li>
+                </ul>
+            </div>
+            <div class="col-3">
+                <b>Some other stuff</b>
+                <ul>
+                    <li>Start thing</li>
+                    <li>Middle thing</li>
+                    <li>Last thing</li>
+                </ul>
+            </div>
+            <div class="col-3">
+                <b>Some other stuff</b>
+                <ul>
+                    <li>Start thing</li>
+                    <li>Middle thing</li>
+                    <li>Last thing</li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script type="text/javascript">
+        function dropdownMenu() {
+            var menu = document.getElementById("menu");
+            if (menu.className == "menu") {
+                menu.className += " responsive"
+            } else {
+                menu.className = "menu";
+            }
+        }
+    </script>
+</body>
+</html>

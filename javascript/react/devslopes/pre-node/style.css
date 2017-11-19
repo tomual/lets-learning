@@ -1,0 +1,73 @@
+
+html {
+    font-family: 'Lora', serif;
+}
+
+body {
+    text-align: center;
+    background: linear-gradient(to bottom, #74e3ec, #c7ffe2);
+/*    background: url('hoodie-cat-illustration-b.png');
+    background-attachment: fixed;
+    background-repeat: no-repeat;*/
+    background-position: bottom left;
+}
+
+h1 {
+    font-family: 'PT Sans', sans-serif;
+    text-shadow: 2px 2px 3px rgba(0,0,0,0.2);
+}
+
+.menu li {
+    font-family: 'Bitter', serif;
+    display: inline-block;
+}
+
+table {
+    margin: auto;
+}
+
+iframe {
+    box-shadow: 3px 3px 5px rgba(0,0,0,0.2);
+}
+
+img {
+    border-radius: 10px;
+    width: 400px;
+    max-width: 100%;
+    padding: 5px;
+    border: 5px solid #d7eeba;
+}
+
+.row {
+    display: flex;
+    width: 100%;
+}
+
+.row::after {
+    display: block;
+    clear: both;
+    content: "";
+}
+
+.col-4 {
+    width: 33.33%
+}
+.col-6 {
+    width: 50%
+}
+.col-8 {
+    width: 66.66%
+}
+.col-12 {
+    width: 100%
+}
+
+* {
+    box-sizing: border-box;
+}
+
+[class*="col-"] {
+    border: 2px solid #FFF;
+    padding: 15px;
+    float: left;
+}

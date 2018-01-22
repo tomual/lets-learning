@@ -1,5 +1,6 @@
 package com.company.classes;
 
+import java.io.*;
 import java.util.*;
 
 public class Main {
@@ -35,7 +36,104 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        testGenerics();
+        testTree();
+    }
+
+    public static void testSet() {
+        int numbers[] = {3, 6, 8, 9, 12, 55};
+        Set<Integer> set = new HashSet<>();
+        for (int i = 0; i < numbers.length; i++) {
+            set.add(numbers[i]);
+            System.out.println("Adding " + numbers[i]);
+        }
+        System.out.println(set);
+        System.out.println(set.size());
+        set.remove(numbers[0]);
+        System.out.println(set);
+        if (set.contains(55)) {
+            System.out.println("Has 55");
+        }
+    }
+
+    public static void testTree() {
+        int numbers[] = {2, 5, 3, 7, 1, 8};
+        Set<Integer> set = new HashSet<>();
+        for (int i = 0; i < numbers.length; i++) {
+            set.add(numbers[i]);
+        }
+
+        TreeSet treeSet = new TreeSet(set);
+        System.out.println(treeSet);
+        treeSet.add(4);
+        System.out.println(treeSet);
+
+        Set<Object> set2 = new HashSet<>();
+        set2.add("Nina");
+        set2.add("Tine");
+        set2.add("Zinc");
+        set2.add("Fred");
+        TreeSet treeSet2 = new TreeSet(set2);
+        System.out.println(treeSet2);
+
+        LinkedHashSet<String> linkedHashSet = new LinkedHashSet();
+        linkedHashSet.add("Java");
+        linkedHashSet.add("Python");
+        linkedHashSet.add("C++");
+        linkedHashSet.add("PHP");
+        System.out.println(linkedHashSet);
+
+        Iterator iterator = linkedHashSet.iterator();
+        while (iterator.hasNext()) {
+            System.out.println(iterator.next());
+        }
+
+    }
+
+    public static void makeFile() {
+        File file = new File("src/test2.txt");
+
+        try (FileWriter fileWriter = new FileWriter(file)) {
+            fileWriter.write("Some content\n");
+            fileWriter.write("More content");
+            fileWriter.close();
+
+            FileReader fileReader = new FileReader(file);
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
+            String line = null;
+            while ((line = bufferedReader.readLine()) != null) {
+                System.out.println(line);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void readFile() {
+        File file = new File("src/test.txt");
+
+        try (FileInputStream fileInputStream = new FileInputStream(file)) {
+            System.out.println("Size available: " + fileInputStream.available());
+
+            int content;
+            while((content = fileInputStream.read()) != -1) {
+                System.out.print((char) content);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void testInputs() throws IOException {
+        byte data[] = new byte[10];
+
+        System.out.println("Enter characters: ");
+        System.in.read(data);
+
+        System.out.println("You entered: ");
+        for (int i = 0; i < data.length; i++) {
+            System.out.print((char) data[i]);
+        }
     }
 
     public static void testGenerics() {

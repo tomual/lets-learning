@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
-
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Page">
    <children>
@@ -40,5 +40,6 @@
             <Image url="@lots%20of%20pumpkins.jpg" />
          </image>
       </ImageView>
+      <Hyperlink fx:id="link" layoutX="34.0" layoutY="189.0" onAction="#linkClick" text="Link" />
    </children>
 </AnchorPane>

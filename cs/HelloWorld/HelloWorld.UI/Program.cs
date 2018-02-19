@@ -10,13 +10,26 @@ namespace HelloWorld.UI
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Enter to start time");
+            Console.ReadLine();
+
+            StopWatch stopWatch = new StopWatch();
+            stopWatch.start();
+
+            Console.WriteLine("Enter to stop time");
+            Console.ReadLine();
+            stopWatch.stop();
+
+            Console.ReadLine();
+
             // askName(args);
             // askAddition();
             // prettyPrint();
-            // flipCoin();
-            guessGame();
+            // guessGame();
             // luckySeven();
             // multiplicationTable();
+            // CoinFlip coinFlip = new CoinFlip();
+            // coinFlip.flipCoin();
         }
 
         private static void multiplicationTable()
@@ -114,31 +127,7 @@ namespace HelloWorld.UI
             Console.WriteLine("Correct, the number is {0}. You guessed {1} times.", answer, guesses);
             Console.ReadLine();
         }
-
-        private static void flipCoin()
-        {
-            int coin;
-            string coinLabel;
-            string guess;
-            Random random = new Random();
-
-            Console.Write("Heads (h) or tails (t)?: ");
-            guess = Console.ReadLine();
-            coin = random.Next(0, 2);
-            coinLabel = coin == 0 ? "Heads" : "Tails";
-
-            if((coin == 0 && guess == "h") || (coin == 1 && guess == "t"))
-            {
-                Console.WriteLine("{0}, you guessed correctly", coinLabel);
-            }
-            else
-            {
-                Console.Write("{0}, you guessed incorrectly", coinLabel);
-            }
-
-            Console.ReadLine();
-        }
-
+        
         private static void prettyPrint()
         {
             string rightFormat = "{0,-15} {1,9:C}";

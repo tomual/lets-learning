@@ -10,17 +10,28 @@ namespace HelloWorld.UI
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Enter to start time");
-            Console.ReadLine();
+            Hangman hangman = new Hangman();
+            hangman.Play();
 
-            StopWatch stopWatch = new StopWatch();
-            stopWatch.start();
+            //RockPaperScissors rps = new RockPaperScissors();
+            //rps.play();
 
-            Console.WriteLine("Enter to stop time");
-            Console.ReadLine();
-            stopWatch.stop();
+            //Rectangle rectangle = new Rectangle(5, 7);
+            //Console.WriteLine(rectangle.getArea());
+            //Console.ReadLine();
 
-            Console.ReadLine();
+
+            //Console.WriteLine("Enter to start time");
+            //Console.ReadLine();
+
+            //StopWatch stopWatch = new StopWatch();
+            //stopWatch.start();
+
+            //Console.WriteLine("Enter to stop time");
+            //Console.ReadLine();
+            //stopWatch.stop();
+
+            //Console.ReadLine();
 
             // askName(args);
             // askAddition();

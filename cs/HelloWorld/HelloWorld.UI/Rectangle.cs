@@ -18,6 +18,7 @@ namespace HelloWorld.UI
 
         public Rectangle(int width, int height)
         {
+            this.height = height;
             this.width = width;
         }
 

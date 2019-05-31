@@ -13,6 +13,9 @@ public class GameEnding : MonoBehaviour
     float m_Timer;
     public CanvasGroup exitBackgoundImageCanvasGroup;
     public CanvasGroup caughtBackgroundImageCanvasGroup;
+    public AudioSource exitAudio;
+    public AudioSource caughtAudio;
+    bool m_HasAudioPlayed;
 
 
     // Start is called before the first frame update
@@ -26,10 +29,10 @@ public class GameEnding : MonoBehaviour
     {
         if (m_IsPlayerAtExit)
         {
-            EndLevel(exitBackgoundImageCanvasGroup, false);
+            EndLevel(exitBackgoundImageCanvasGroup, false, exitAudio);
         } else if (m_IsPlayerCaught)
         {
-            EndLevel(caughtBackgroundImageCanvasGroup, true);
+            EndLevel(caughtBackgroundImageCanvasGroup, true, caughtAudio);
         }
     }
 
@@ -46,7 +49,7 @@ public class GameEnding : MonoBehaviour
         m_IsPlayerCaught = true;
     }
 
-    void EndLevel(CanvasGroup imageCanvasGroup, bool doRestart)
+    void EndLevel(CanvasGroup imageCanvasGroup, bool doRestart, AudioSource audioSource)
     {
         m_Timer += Time.deltaTime;
         imageCanvasGroup.alpha = m_Timer / fadeDuration;
@@ -59,6 +62,11 @@ public class GameEnding : MonoBehaviour
             {
                 Application.Quit();
             }
+        }
+        if (!m_HasAudioPlayed)
+        {
+            audioSource.Play();
+            m_HasAudioPlayed = true;
         }
     }
 }

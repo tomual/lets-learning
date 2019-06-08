@@ -4,9 +4,9 @@ import React from "react";
 import { View, Text, StyleSheet, Button, Image } from "react-native";
 import { createStackNavigator, createAppContainer, createDrawerNavigator } from "react-navigation";
 
-class MyHomeScreen extends React.Component {
+class ProjectOne extends React.Component {
   static navigationOptions = {
-    drawerLabel: 'Home',
+    drawerLabel: 'Project 1',
     drawerIcon: ({ tintColor }) => (
       <Image
         source={require('./chats-icon.png')}
@@ -18,16 +18,37 @@ class MyHomeScreen extends React.Component {
   render() {
     return (
       <Button
-        onPress={() => this.props.navigation.navigate('Notifications')}
+        onPress={() => this.props.navigation.navigate('Project 1')}
         title="Go to notifications"
       />
     );
   }
 }
 
-class MyNotificationsScreen extends React.Component {
+class ProjectTwo extends React.Component {
   static navigationOptions = {
-    drawerLabel: 'Notifications',
+    drawerLabel: 'Project 2',
+    drawerIcon: ({ tintColor }) => (
+      <Image
+        source={require('./notif-icon.png')}
+        style={[styles.icon, {tintColor: tintColor}]}
+      />
+    ),
+  };
+
+  render() {
+    return (
+      <Button
+        onPress={() => this.props.navigation.goBack()}
+        title="Go back home"
+      />
+    );
+  }
+}
+
+class ProjectThree extends React.Component {
+  static navigationOptions = {
+    drawerLabel: 'Project Three',
     drawerIcon: ({ tintColor }) => (
       <Image
         source={require('./notif-icon.png')}
@@ -54,11 +75,14 @@ const styles = StyleSheet.create({
 });
 
 const MyDrawerNavigator = createDrawerNavigator({
-  Home: {
-    screen: MyHomeScreen,
+  ProjectOne: {
+    screen: ProjectOne,
   },
-  Notifications: {
-    screen: MyNotificationsScreen,
+  ProjectTwo: {
+    screen: ProjectTwo,
+  },
+  ProjectThree: {
+    screen: ProjectThree,
   },
 });
 

@@ -13,7 +13,7 @@
 
 	</div><!-- #content -->
 
-	<footer id="colophon" class="site-footer">
+	<!-- <footer id="colophon" class="site-footer">
 		<div class="site-info">
 			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'cooler' ) ); ?>">
 				<?php
@@ -27,7 +27,7 @@
 				printf( esc_html__( 'Theme: %1$s by %2$s.', 'cooler' ), 'cooler', '<a href="http://underscores.me/">Underscores.me</a>' );
 				?>
 		</div><!-- .site-info -->
-	</footer><!-- #colophon -->
+	</footer> -->
 </div><!-- #page -->
 
 <?php wp_footer(); ?>

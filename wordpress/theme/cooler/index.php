@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The main template file
  *
@@ -14,23 +15,61 @@
 
 get_header();
 ?>
+<div class="container">
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main">
+	<div class="jumbotron p-4 p-md-5 text-white rounded bg-dark">
+		<div class="col-md-6 px-0">
+			<h1 class="display-4 font-italic">Some cool intro for yourself here</h1>
+			<p class="lead my-3">A little description on yourself for the visitors to see. Ideally at least two sentences.</p>
+			<p class="lead mb-0"><a href="#" class="text-white font-weight-bold">Read more ...</a></p>
+		</div>
+	</div>
 
-		<?php
-		if ( have_posts() ) :
+	<div class="row mb-2 cards">
+		<div class="col-md-6">
+			<div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+				<div class="col p-4 d-flex flex-column position-static">
+					<h3>Games</h3>
+					<p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+					<a href="#" class="stretched-link">Go to Games &raquo;</a>
+				</div>
+				<div class="card-games col-auto d-none d-lg-block" width="200" height="250">
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+				<div class="col p-4 d-flex flex-column position-static">
+					<h3>Music</h3>
+					<p class="mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+					<a href="#" class="stretched-link">Go to Music &raquo;</a>
+				</div>
+				<div class="card-music col-auto d-none d-lg-block" width="200" height="250">
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<main role="main" class="container">
+	<div class="row">
+		<div class="col-md-8 blog-main">
+			<h3 class="pb-4 mb-4 font-italic border-bottom text-muted">
+				Blog
+			</h3>
 
-			if ( is_home() && ! is_front_page() ) :
+			<?php
+		if (have_posts()) :
+
+			if (is_home() && !is_front_page()) :
 				?>
 				<header>
 					<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
 				</header>
-				<?php
+		<?php
 			endif;
 
 			/* Start the Loop */
-			while ( have_posts() ) :
+			while (have_posts()) :
 				the_post();
 
 				/*
@@ -38,7 +77,7 @@ get_header();
 				 * If you want to override this in a child theme, then include a file
 				 * called content-___.php (where ___ is the Post Type name) and that will be used instead.
 				 */
-				get_template_part( 'template-parts/content', get_post_type() );
+				get_template_part('template-parts/content', get_post_type());
 
 			endwhile;
 
@@ -46,14 +85,16 @@ get_header();
 
 		else :
 
-			get_template_part( 'template-parts/content', 'none' );
+			get_template_part('template-parts/content', 'none');
 
 		endif;
 		?>
 
-		</main><!-- #main -->
-	</div><!-- #primary -->
+		</div>
+		<?php get_sidebar() ?>
+		
+	</div>
+</main>
 
 <?php
-get_sidebar();
 get_footer();

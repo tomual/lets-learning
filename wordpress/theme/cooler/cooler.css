@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito|Hind&display=swap');
+
+.jumbotron {
+    background-image: url(http://localhost/wordpress/wp-content/uploads/2019/10/banner.png);
+    background-position: bottom;
+}
+
+.card-games {
+    background-image: url(http://localhost/wordpress/wp-content/uploads/2019/10/games.png);
+    width: 200px;
+    height: 200px;
+    background-position: -210px -170px;
+}
+
+.card-music {
+    background-image: url(http://localhost/wordpress/wp-content/uploads/2019/10/music.png);
+    width: 200px;
+    height: 200px;
+    background-position: center;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Nunito', serif;
+    margin: 0;
+}
+
+body {
+    font-family: 'Hind', sans-serif;
+}
+
+.blog-header-logo {
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.cards h3 {
+    text-transform: uppercase;
+    font-size: 22px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: #212529;
+}
+
+.blog-post img {
+    max-width: 80%;
+    margin-bottom: 24px;
+}
+
+.blog-post::after {
+    content: " ";
+    display: block;
+    border-bottom: 2px solid #CCC;
+    width: 24px;
+    margin: 2rem 0;
+}
+
+a {
+    color: #607d8b;
+}
+
+.menu-main-container {
+    width: 100%;
+}
+
+ul#primary-menu {
+    margin: 0;
+    padding: 0;
+}
+
+li.menu-item {
+    list-style-type: none;
+    display: inline-block;
+}
+
+h2.widget-title {
+    margin-bottom: .5rem;
+    font-size: 1.5rem;
+}
+
+aside ul {
+    margin: 0;
+    padding: 0;
+}
+
+aside li {
+    list-style-type: none;
+}
+
+h1.site-title {
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}

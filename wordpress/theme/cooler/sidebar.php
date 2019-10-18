@@ -20,6 +20,10 @@ if ( ! is_active_sidebar( 'sidebar-1' ) ) {
 	<div class="p-4">
 	<?php dynamic_sidebar( 'sidebar-1' ); ?>
 	</div>
+	
+    <footer class="text-muted small mx-4">
+        &copy; 2019 Kinsley. All rights reserved.        
+    </footer>
 </aside>
 <aside id="secondary" class="widget-area">
 </aside><!-- #secondary -->

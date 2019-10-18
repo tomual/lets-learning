@@ -27,7 +27,7 @@
 				printf( esc_html__( 'Theme: %1$s by %2$s.', 'cooler' ), 'cooler', '<a href="http://underscores.me/">Underscores.me</a>' );
 				?>
 		</div><!-- .site-info -->
-	</footer> -->
+	</footer> 
 </div><!-- #page -->
 
 <?php wp_footer(); ?>

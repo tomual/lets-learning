@@ -17,7 +17,7 @@ get_header();
 ?>
 <div class="container">
 
-	<div class="jumbotron p-4 p-md-5 text-white rounded bg-dark">
+	<div class="jumbotron p-4 p-md-5 text-white rounded bg-dark" style="background-image: url(<?php echo get_template_directory_uri() ?>/img/banner.png)">
 		<div class="col-md-6 px-0">
 			<h1 class="display-4 font-italic">Some cool intro for yourself here</h1>
 			<p class="lead my-3">A little description on yourself for the visitors to see. Ideally at least two sentences.</p>
@@ -31,9 +31,9 @@ get_header();
 				<div class="col p-4 d-flex flex-column position-static">
 					<h3>Games</h3>
 					<p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
-					<a href="#" class="stretched-link">Go to Games &raquo;</a>
+					<a href="<?php echo site_url('games') ?>" class="stretched-link">Go to Games &raquo;</a>
 				</div>
-				<div class="card-games col-auto d-none d-lg-block" width="200" height="250">
+				<div class="card-games col-auto d-none d-lg-block" width="200" height="250" style="background-image: url(<?php echo get_template_directory_uri() ?>/img/games.png)">
 				</div>
 			</div>
 		</div>
@@ -42,9 +42,9 @@ get_header();
 				<div class="col p-4 d-flex flex-column position-static">
 					<h3>Music</h3>
 					<p class="mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
-					<a href="#" class="stretched-link">Go to Music &raquo;</a>
+					<a href="<?php echo site_url('music') ?>" class="stretched-link">Go to Music &raquo;</a>
 				</div>
-				<div class="card-music col-auto d-none d-lg-block" width="200" height="250">
+				<div class="card-music col-auto d-none d-lg-block" width="200" height="250" style="background-image: url(<?php echo get_template_directory_uri() ?>/img/music.png)">
 				</div>
 			</div>
 		</div>

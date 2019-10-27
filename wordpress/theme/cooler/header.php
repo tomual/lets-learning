@@ -34,15 +34,9 @@
 				<div class="col-4 text-center">
 					<?php
 					the_custom_logo();
-					if (is_front_page() && is_home()) :
-						?>
-						<h1 class="site-title"><a href="<?php echo esc_url(home_url('/')); ?>" rel="home"><?php bloginfo('name'); ?></a></h1>
+					?>
+					<a class="blog-header-logo text-dark" href="<?php echo esc_url(home_url('/')); ?>" rel="home"><?php bloginfo('name'); ?></a>
 					<?php
-					else :
-						?>
-						<p class="site-title"><a href="<?php echo esc_url(home_url('/')); ?>" rel="home"><?php bloginfo('name'); ?></a></p>
-					<?php
-					endif;
 					$cooler_description = get_bloginfo('description', 'display');
 					if ($cooler_description || is_customize_preview()) :
 						?>
@@ -55,13 +49,13 @@
 		</header>
 
 		<div class="nav-scroller py-1 mb-2">
-			<nav class="nav d-flex justify-content-between">
+			<nav class="nav">
 				<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e('Primary Menu', 'cooler'); ?></button>
 				<?php
 				wp_nav_menu(array(
 					'theme_location' => 'menu-1',
-					'menu_id'        => 'primary-menu',
-					'menu_class'      => 'menu d-flex justify-content-between',
+					'menu_class' => 'list-unstyled m-0 menu d-flex justify-content-between',
+					'container_class' => 'w-100',
 				));
 				?>
 			</nav>

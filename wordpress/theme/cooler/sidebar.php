@@ -17,9 +17,7 @@ if ( ! is_active_sidebar( 'sidebar-1' ) ) {
 		<p class="mb-0"><b>Game Name</b> Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit. <a href="">Play Now</a></p>
 	</div>
 
-	<div class="p-4">
 	<?php dynamic_sidebar( 'sidebar-1' ); ?>
-	</div>
 	
     <footer class="text-muted small mx-4">
         &copy; 2019 Kinsley. All rights reserved.        

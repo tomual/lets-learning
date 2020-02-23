@@ -1,0 +1,26 @@
+body {
+	line-height: 1.5rem;
+}
+
+.hero {
+	padding: 200px 0;
+}
+
+.p-big {
+	padding: 72px 0;
+}
+
+.features .fe {
+	font-size: 46px;
+	opacity: 0.5;
+}
+
+.job-card .fe {
+	color: #7ea5dd;
+	padding-right: 6px;
+	font-weight: 600;
+}
+
+.job-card .location, .job-card .company {
+	font-size: 16px;
+}

@@ -1,19 +1,39 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { Component } from 'react'
+import { View } from 'react-native'
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-    </View>
-  );
+import List from './List'
+import Input from './Input'
+import Title from './Title'
+
+export default class App extends Component {
+    state = {
+        todos: ['Dark Souls', 'Dark Souls II', 'Dark Souls III']
+    }
+
+    onAddTodo = (text) => {
+        const { todos } = this.state
+
+        this.setState({
+            todos: [text, ...todos]
+        })
+    }
+
+    onRemoveTodo = (index) => {
+        const { todos } = this.state
+
+        this.setState({
+            todos: todos.filter((todo, i) => i !== index)
+        })
+    }
+
+    render() {
+        const { todos } = this.state
+        return (
+            <View>
+            <Title>To-Do List</Title>
+            <Input placeholder={'Type a new task'} onSubmitEditing={this.onAddTodo} />
+            <List list={todos} onPressItem={this.onRemoveTodo} />
+            </View>
+        )
+    }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

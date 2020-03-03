@@ -13,7 +13,11 @@ export const actionCreators = {
 }
 
 const initialState = {
-    todos: ['Dark Souls I', 'Dark Souls II', 'Dark Souls III']
+    todos: [
+        {title: 'Dark Souls I'},
+        {title: 'Dark Souls II'},
+        {title: 'Dark Souls III'},
+    ]
 }
 
 export const reducer = (state = initialState, action) => {

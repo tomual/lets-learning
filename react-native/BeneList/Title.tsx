@@ -6,21 +6,9 @@ export default class Title extends Component {
         const { children } = this.props
 
         return (
-            <View style={styles.header}>
-                <Text style={styles.title}>{children}</Text>
+            <View>
+                <Text>{children}</Text>
             </View>
         )
     }
 }
-
-
-const styles = StyleSheet.create({
-    header: {
-        backgroundColor: 'skyblue',
-        padding: 15,
-    },
-    title: {
-        textAlign: 'center',
-        color: 'white',
-    },
-})

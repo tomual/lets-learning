@@ -1,28 +1,38 @@
 import React, { Component } from 'react'
 import { View, TouchableOpacity, Text, StyleSheet } from 'react-native'
+import { CheckBox } from '@ui-kitten/components';
+import { List as KittyList, ListItem as KittyListItem} from '@ui-kitten/components';
 
-export default class List extends Component {
-    renderItem = (text, i) => {
-        const { onPressItem } = this.props
+class ListCheckBox extends Component {
 
-        return (
-            <TouchableOpacity style={styles.item} onPress={() => onPressItem(i)}>
-            <Text>{text}</Text>
-            </TouchableOpacity>
-            )
-    }
-
-    render () {
-        const {list} = this.props
-
-        return <View>{list.map(this.renderItem)}</View>
-    }
 }
 
-const styles = StyleSheet.create({
-    item: {
-        backgroundColor: 'whitesmoke',
-        marginBottom: 5,
-        padding: 15,
+export default class List extends Component {
+
+    state = { checked: false }
+
+    handleClicked = () => {
+        this.setState(() => {
+            return { checked: true }
+        })
     }
-})
+
+    renderItem = ({item, index}) => {
+        const { onPressItem } = this.props
+        const { checked } = this.state
+
+        return (
+            <KittyListItem
+                title={item.title}
+                onPress={() => onPressItem(index)}
+            />
+        )
+    }
+
+    render() {
+        const { list } = this.props
+
+        return <KittyList data={list} renderItem={this.renderItem} />
+        // return <View>{list.map(this.renderItem)}</View>
+    }
+}

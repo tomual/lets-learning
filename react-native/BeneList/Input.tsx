@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { TextInput, StyleSheet } from 'react-native'
+import { Input as KittyInput } from '@ui-kitten/components';
 
 export default class Input extends Component {
     state = {
@@ -16,7 +17,7 @@ export default class Input extends Component {
             return
         }
 
-        onSubmitEditing(text)
+        onSubmitEditing({title: text})
         this.setState({ text: '' })
     }
 
@@ -25,8 +26,7 @@ export default class Input extends Component {
         const { text } = this.state
 
         return (
-            <TextInput
-                style={styles.input}
+            <KittyInput
                 value={text}
                 placeholder={placeholder}
                 onChangeText={this.onChangeText}
@@ -35,10 +35,3 @@ export default class Input extends Component {
         )
     }
 }
-
-const styles = StyleSheet.create({
-    input: {
-        padding: 15,
-        height: 50
-    }
-})

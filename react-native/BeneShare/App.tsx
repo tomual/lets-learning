@@ -1,64 +1,42 @@
 import React from 'react';
-import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import * as ImagePicker from 'expo-image-picker';
-import * as Sharing from 'expo-sharing';
-import styles from './Styles';
-import Button from './Button';
+import { Text, View } from 'react-native'
+import { createStore } from 'redux'
+
+// Define action types
+const types = {
+  INCREMENT: 'INCREMENT',
+}
+
+// Define a reducer
+const reducer = (state, action) => {
+  if (action.type === types.INCREMENT) {
+    return {count: state.count + 1}
+  }
+  return state
+}
+
+// Define the initial state of our store
+const initialState = {count: 0}
+
+// Create a store, passing our reducer function and our initial state
+const store = createStore(reducer, initialState)
 
 
+/// We're done! Redux is all set up. Here's how we can use it:
+
+
+// Now we can dispatch actions, which are understood by our store/reducer
+store.dispatch({type: types.INCREMENT})
+store.dispatch({type: types.INCREMENT})
+store.dispatch({type: types.INCREMENT})
+
+// Calling `store.getState()` returns our state object
 export default function App() {
-    let [selectedImage, setSelectedImage] = React.useState(null);
-    let openImagePickerAsync = async () => {
-        let permissionResult = await ImagePicker.requestCameraRollPermissionsAsync();
-
-        if (permissionResult.granted === false) {
-            alert('Permission to access camera required');
-            return;
-        }
-
-        let pickerResult = await ImagePicker.launchImageLibraryAsync();
-        if (pickerResult.cancelled === true) {
-            return;
-        }
-
-        setSelectedImage({ localUri: pickerResult.uri });
-        console.log(pickerResult);
-    };
-
-    let openShareDialogAsync = async () => {
-        if (!(await Sharing.isAvailableAsync())) {
-            alert('Sharing not availale');
-            return;
-        }
-
-        Sharing.shareAsync(selectedImage.localUri);
-    }
-
-    let goBack = () => {
-        setSelectedImage(null);
-    }
-
-    if (selectedImage !== null) {
-        return (
-            <View style={styles.container}>
-                <Image source={{ uri: selectedImage.localUri }} style={styles.thumbnail} />
-
-                <Button onpress={openShareDialogAsync} text="Share this photo" />
-                <Button onpress={goBack} text="Go back" />
-            </View>
-        );
-    }
-    return (
-        <View style={styles.container}>
-            <Text style={styles.logo} >
-                🌄
-            </Text>
-
-            <Text style={styles.instructions} >
-                To share a photo from your phone with a friend, just press the button below!
-            </Text>
-
-            <Button onpress={openImagePickerAsync} text="Pick a photo" />
+  return (
+        <View>
+    <Text style={{fontSize: 100}}>
+      {store.getState().count}
+    </Text>
         </View>
-    );
+  )
 }

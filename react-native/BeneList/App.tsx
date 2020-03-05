@@ -1,7 +1,13 @@
 import React, { Component } from 'react'
-import { View, StyleSheet  } from 'react-native'
-import { ApplicationProvider, Layout, Text } from '@ui-kitten/components';
+import { View, StyleSheet } from 'react-native'
+import {
+    ApplicationProvider, IconRegistry, Layout, Text,
+    TopNavigation,
+    TopNavigationAction, Icon
+} from '@ui-kitten/components';
 import { mapping, light as lightTheme, dark as darkTheme } from '@eva-design/eva';
+import { EvaIconsPack } from '@ui-kitten/eva-icons';
+
 
 import { actionCreators } from './todoListRedux'
 import List from './List'
@@ -19,11 +25,24 @@ class HomeScreen extends Component {
     onRemoveTodo = (index) => {
         store.dispatch(actionCreators.remove(index))
     }
+
+    menuIcon = (style) => (
+        <Icon {...style} name='menu-outline' />
+    );
+
+    backAction = () => (
+        <TopNavigationAction icon={this.menuIcon} />
+    );
+
     render() {
-        const {todos} = this.props
+        const { todos } = this.props
         return (
-            <Layout  style={styles.container} >
-                <Title>To-Do List</Title>
+            <Layout style={styles.container} >
+                <TopNavigation
+                    title='Center'
+                    alignment='center'
+                    leftControl={this.backAction()}
+                />
                 <Input placeholder={'Type a new task'} onSubmitEditing={this.onAddTodo} />
                 <List list={todos} onPressItem={this.onRemoveTodo} />
             </Layout>
@@ -48,18 +67,25 @@ export default class App extends Component {
     componentWillUnmount() {
         this.unsubscribe()
     }
+
     render() {
         const { todos } = this.state
         return (
-            <ApplicationProvider mapping={mapping} theme={darkTheme}>
-                <HomeScreen todos={todos} />
-            </ApplicationProvider>
+            <React.Fragment>
+                <IconRegistry icons={EvaIconsPack} />
+                <ApplicationProvider mapping={mapping} theme={darkTheme}>
+
+                    <HomeScreen todos={todos} />
+                </ApplicationProvider>
+            </React.Fragment>
         )
     }
 }
 
 const styles = StyleSheet.create({
-  container: {
-    padding: 16,
-  },
+    container: {
+        padding: 16,
+        flex: 1,
+        backgroundColor: '#222b45'
+    },
 });

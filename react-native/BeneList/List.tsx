@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { View, TouchableOpacity, Text, StyleSheet } from 'react-native'
 import { CheckBox } from '@ui-kitten/components';
-import { List as KittyList, ListItem as KittyListItem} from '@ui-kitten/components';
+import { List as KittyList, ListItem as KittyListItem, Button as KittenButton, Icon as KittenIcon } from '@ui-kitten/components';
 
 class ListCheckBox extends Component {
 
@@ -17,13 +17,19 @@ export default class List extends Component {
         })
     }
 
-    renderItem = ({item, index}) => {
+    renderItemIcon = (style) => (
+      <KittenIcon {...style} name='square-outline'/>
+    );
+
+    renderItem = ({ item, index }) => {
         const { onPressItem } = this.props
         const { checked } = this.state
 
         return (
             <KittyListItem
+                style={styles.listItem}
                 title={item.title}
+                  icon={this.renderItemIcon}
                 onPress={() => onPressItem(index)}
             />
         )
@@ -32,7 +38,17 @@ export default class List extends Component {
     render() {
         const { list } = this.props
 
-        return <KittyList data={list} renderItem={this.renderItem} />
+        return <KittyList style={styles.list} data={list} renderItem={this.renderItem} />
         // return <View>{list.map(this.renderItem)}</View>
     }
 }
+
+const styles = StyleSheet.create({
+    list: {
+        flex: 1,
+        backgroundColor: '#222b45'
+    },
+    listItem: {
+        height: 55
+    },
+});

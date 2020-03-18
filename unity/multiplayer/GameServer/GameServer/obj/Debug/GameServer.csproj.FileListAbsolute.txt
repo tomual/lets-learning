@@ -1,0 +1,6 @@
+C:\Users\tom\Desktop\GitHub\lets-learning\unity\multiplayer\GameServer\GameServer\bin\Debug\GameServer.exe.config
+C:\Users\tom\Desktop\GitHub\lets-learning\unity\multiplayer\GameServer\GameServer\bin\Debug\GameServer.exe
+C:\Users\tom\Desktop\GitHub\lets-learning\unity\multiplayer\GameServer\GameServer\bin\Debug\GameServer.pdb
+C:\Users\tom\Desktop\GitHub\lets-learning\unity\multiplayer\GameServer\GameServer\obj\Debug\GameServer.csprojAssemblyReference.cache
+C:\Users\tom\Desktop\GitHub\lets-learning\unity\multiplayer\GameServer\GameServer\obj\Debug\GameServer.exe
+C:\Users\tom\Desktop\GitHub\lets-learning\unity\multiplayer\GameServer\GameServer\obj\Debug\GameServer.pdb

@@ -12,7 +12,7 @@ namespace GameServer
     {
         public static int MaxPlayers { get; private set; }
         public static int Port { get; private set; }
-        private static Dictionary<int, Client> clients = new Dictionary<int, Client>();
+        public static Dictionary<int, Client> clients = new Dictionary<int, Client>();
 
         private static TcpListener tcpListener;
 

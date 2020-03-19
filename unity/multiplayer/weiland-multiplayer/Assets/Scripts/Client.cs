@@ -14,6 +14,9 @@ public class Client : MonoBehaviour
     public int myId = 0;
     public TCP tcp;
 
+    private delegate void PacketHandler(Packet _packet);
+    private static Dictionary<int, PacketHandler> packetHandlers;
+
     private void Awake()
     {
         if (instance == null)
@@ -35,6 +38,7 @@ public class Client : MonoBehaviour
     public void ConnectToServer()
     {
         Debug.Log("ConnectToServer");
+        InitializeClientData();
         tcp.Connect();
     }
 
@@ -43,11 +47,11 @@ public class Client : MonoBehaviour
         public TcpClient socket;
 
         private NetworkStream stream;
+        private Packet receivedData;
         private byte[] receiveBuffer;
 
         public void Connect()
         {
-            Debug.Log("Connect");
             socket = new TcpClient
             {
                 ReceiveBufferSize = dataBufferSize,
@@ -60,7 +64,6 @@ public class Client : MonoBehaviour
 
         private void ConnectCallback(IAsyncResult _result)
         {
-            Debug.Log("ConnectCallback");
             socket.EndConnect(_result);
 
             if (!socket.Connected)
@@ -71,12 +74,13 @@ public class Client : MonoBehaviour
 
             stream = socket.GetStream();
 
+            receivedData = new Packet();
+
             stream.BeginRead(receiveBuffer, 0, dataBufferSize, ReceiveCallback, null);
         }
 
         private void ReceiveCallback(IAsyncResult _result)
         {
-            Debug.Log("ReceiveCallback");
             try
             {
                 int _byteLength = stream.EndRead(_result);
@@ -89,7 +93,7 @@ public class Client : MonoBehaviour
                 byte[] _data = new byte[_byteLength];
                 Array.Copy(receiveBuffer, _data, _byteLength);
 
-                // TODO: handle data
+                receivedData.Reset(HandleData(_data));
                 stream.BeginRead(receiveBuffer, 0, dataBufferSize, ReceiveCallback, null);
             }
             catch (Exception _ex)
@@ -98,5 +102,60 @@ public class Client : MonoBehaviour
                 // TODO: dc
             }
         }
+
+        private bool HandleData(byte[] _data)
+        {
+            int _packetLength = 0;
+
+            receivedData.SetBytes(_data);
+
+            if (receivedData.UnreadLength() >= 4)
+            {
+                _packetLength = receivedData.ReadInt();
+                if (_packetLength <= 0)
+                {
+                    return true;
+                }
+            }
+
+            while (_packetLength > 0 && _packetLength <= receivedData.UnreadLength())
+            {
+                byte[] _packetBytes = receivedData.ReadBytes(_packetLength);
+                ThreadManager.ExecuteOnMainThread(() =>
+                {
+                    using (Packet _packet = new Packet(_packetBytes))
+                    {
+                        int _packetId = _packet.ReadInt();
+                        packetHandlers[_packetId](_packet);
+                    }
+                });
+
+                _packetLength = 0;
+                if (receivedData.UnreadLength() >= 4)
+                {
+                    _packetLength = receivedData.ReadInt();
+                    if (_packetLength <= 0)
+                    {
+                        return true;
+                    }
+                }
+            }
+
+            if (_packetLength <= 1)
+            {
+                return true;
+            }
+
+            return false;
+        }
+    }
+
+    private void InitializeClientData()
+    {
+        packetHandlers = new Dictionary<int, PacketHandler>()
+        {
+            { (int)ServerPackets.welcome, ClientHandle.Welcome }
+        };
+        Debug.Log("Initialized Packets");
     }
 }

@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Hello.gd" type="Script" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
 
 [node name="Panel" type="Panel"]
 margin_right = 128.0
@@ -16,6 +17,19 @@ margin_top = 24.0
 margin_right = 112.0
 margin_bottom = 46.0
 text = "This is a label"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="."]
+margin_left = 16.0
+margin_top = 40.0
+margin_right = 112.0
+margin_bottom = 62.0
+text = "This is a label"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Button" type="Button" parent="."]
 margin_left = 24.0
@@ -26,3 +40,11 @@ text = "Press Me"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 144, 144 )
+texture = ExtResource( 2 )
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

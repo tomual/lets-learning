@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 use App\Http\Controllers\PostsController;
+use App\Http\Controllers\ArticlesController;
 
 Route::get('', function () {
     return view('welcome');
@@ -25,3 +26,11 @@ Route::get('about', function () {
     return view('about');
 });
 Route::get('posts/{post}', [PostsController::class, 'show']);
+
+Route::get('/about', function () {
+    $articles = App\Models\Article::take(3)->latest()->get();
+    return view('about', compact('articles'));
+});
+
+Route::get('articles', [ArticlesController::class, 'index']);
+Route::get('articles/{article}', [ArticlesController::class, 'show']);
